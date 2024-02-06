@@ -1,0 +1,92 @@
+/* Enter your custom styles here */
+.employeeList{
+    width: 200px; 
+    margin: 1rem;
+    margin-right: 1rem;
+    padding: 1rem;
+    border-radius: 10px;
+    background-color: #f2f2f2;
+    box-shadow: 0 0 10px rgba(133, 5, 5, 0.1);  
+} 
+
+ .EmployeeDetails{
+    width: 200px; 
+    margin: 1rem;
+    padding: 1rem;
+    border-radius: 10px;
+    background-color: #f2f2f2;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(133, 5, 5, 0.1); 
+}
+
+.customPageStyle {
+    border-radius: 1rem;
+}
+
+.customListItemStyle {
+    border-radius: 1rem;
+}
+
+.customPage{
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(133,
+    5, 5, 0.1);
+    
+}
+
+.centerTextToolbar .sapMTitle {
+    text-align: left;
+    width: 50%; /* Adjust as needed */
+}
+
+.centerTextToolbar .sapMInputBase {
+    width: 50%; /* Adjust as needed */
+    align-items: right;
+    border-radius: 20px;
+}
+
+.addButton{
+    margin: right 10px;
+    padding: auto;
+
+}
+
+.deleteButton{
+    margin: right 10px;
+    padding: auto;
+
+}
+
+.SearchField{
+   margin: right;
+    border-radius: 8px;
+}
+
+.Title{
+    background-origin: padding-box;
+    border-radius: 1rem;
+    /* background-color:beige */
+}
+
+.emp{
+    /* width: 200px; 
+    margin: 1rem;
+    margin-right: 1rem; */
+    padding: 1rem;
+    margin: 1rem;
+    border-radius: 10px;
+    
+    /* background-color: #f2f2f2;
+    box-shadow: 0 0 10px rgba(133, 5, 5, 0.1);    */
+}
+
+.bold-text{
+    font-weight: bold;
+    font-size: x-large;
+}
+
+.Dialog{
+    width: 40%;
+}
+
+

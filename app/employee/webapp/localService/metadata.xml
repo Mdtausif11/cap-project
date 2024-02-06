@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="4.0" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+    <edmx:Reference Uri="https://sap.github.io/odata-vocabularies/vocabularies/Common.xml">
+        <edmx:Include Alias="Common" Namespace="com.sap.vocabularies.Common.v1"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Core.V1.xml">
+        <edmx:Include Alias="Core" Namespace="Org.OData.Core.V1"/>
+    </edmx:Reference>
+    <edmx:DataServices>
+        <Schema Namespace="CatalogService" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+            <EntityContainer Name="EntityContainer">
+                <EntitySet Name="Employee" EntityType="CatalogService.Employee">
+                    <NavigationPropertyBinding Path="address" Target="Address"/>
+                    <NavigationPropertyBinding Path="department" Target="Department"/>
+                    <NavigationPropertyBinding Path="company" Target="Company"/>
+                </EntitySet>
+                <EntitySet Name="Address" EntityType="CatalogService.Address"/>
+                <EntitySet Name="Department" EntityType="CatalogService.Department"/>
+                <EntitySet Name="Company" EntityType="CatalogService.Company"/>
+            </EntityContainer>
+            <EntityType Name="Employee">
+                <Key>
+                    <PropertyRef Name="ID"/>
+                </Key>
+                <Property Name="ID" Type="Edm.Guid" Nullable="false"/>
+                <Property Name="firstName" Type="Edm.String"/>
+                <Property Name="lastName" Type="Edm.String"/>
+                <Property Name="jobCode" Type="Edm.Int32"/>
+                <NavigationProperty Name="address" Type="CatalogService.Address">
+                    <ReferentialConstraint Property="address_AddressID" ReferencedProperty="AddressID"/>
+                </NavigationProperty>
+                <Property Name="address_AddressID" Type="Edm.Guid"/>
+                <NavigationProperty Name="department" Type="CatalogService.Department">
+                    <ReferentialConstraint Property="department_ID" ReferencedProperty="ID"/>
+                </NavigationProperty>
+                <Property Name="department_ID" Type="Edm.Guid"/>
+                <NavigationProperty Name="company" Type="CatalogService.Company">
+                    <ReferentialConstraint Property="company_ID" ReferencedProperty="ID"/>
+                </NavigationProperty>
+                <Property Name="company_ID" Type="Edm.Guid"/>
+            </EntityType>
+            <EntityType Name="Address">
+                <Key>
+                    <PropertyRef Name="AddressID"/>
+                </Key>
+                <Property Name="AddressID" Type="Edm.Guid" Nullable="false"/>
+                <Property Name="Street" Type="Edm.String"/>
+                <Property Name="City" Type="Edm.String"/>
+                <Property Name="State" Type="Edm.String"/>
+                <Property Name="ZipCode" Type="Edm.Int32"/>
+                <Property Name="Country" Type="Edm.String"/>
+            </EntityType>
+            <EntityType Name="Department">
+                <Key>
+                    <PropertyRef Name="ID"/>
+                </Key>
+                <Property Name="ID" Type="Edm.Guid" Nullable="false"/>
+                <Property Name="Name" Type="Edm.String"/>
+            </EntityType>
+            <EntityType Name="Company">
+                <Key>
+                    <PropertyRef Name="ID"/>
+                </Key>
+                <Property Name="ID" Type="Edm.Guid" Nullable="false"/>
+                <Property Name="Name" Type="Edm.String"/>
+            </EntityType>
+        </Schema>
+    </edmx:DataServices>
+</edmx:Edmx>

@@ -1,0 +1,108 @@
+<mvc:View xmlns:uxap="sap.uxap" xmlns:smartform="sap.ui.comp.smartform"
+          controllerName="com.training.employee.controller.Root"
+          height="100%"
+          xmlns:f2="sap.f"
+          xmlns:table="sap.ui.table"
+          xmlns:mvc="sap.ui.core.mvc"
+          xmlns:f="sap.ui.layout.form"
+          xmlns:tnt="sap.tnt"
+          xmlns:l="sap.ui.layout"
+          xmlns:m="sap.m">
+        <m:ScrollContainer id="menuBar" vertical="true" height="100%">
+            <tnt:ToolHeader id="shellLikeToolHeader" class="sapUiTinyMargin">
+                <m:Button id="icon1" icon="sap-icon://menu2" type="Transparent" tooltip="Menu" press="onPress">
+                    <m:layoutData>
+                        <m:OverflowToolbarLayoutData id="toolBar" priority="NeverOverflow"/>
+                    </m:layoutData>
+                </m:Button>
+                <m:Image id="image" src="sapLogo.png" decorative="false" tooltip="SAP Logo">
+                    <m:layoutData>
+                        <m:OverflowToolbarLayoutData id="toolBar1" priority="NeverOverflow"/>
+                    </m:layoutData>
+                </m:Image>
+                <m:ToolbarSpacer id="spacer">
+                    <m:layoutData>
+                        <m:OverflowToolbarLayoutData id="toolBar2" priority="NeverOverflow"/>
+                    </m:layoutData>
+                </m:ToolbarSpacer>
+                <m:OverflowToolbarButton id="icon2" icon="sap-icon://source-code" type="Transparent" tooltip="Action 1" text="Action 1">
+                   <m:layoutData>
+                        <m:OverflowToolbarLayoutData id="toolBar3" priority="NeverOverflow"/>
+                    </m:layoutData>
+                </m:OverflowToolbarButton>
+                <m:OverflowToolbarButton id="icon" icon="sap-icon://card" type="Transparent" tooltip="Action 2" text="Action 2">
+                    <m:layoutData>
+                        <m:OverflowToolbarLayoutData id="toolbar4" group="2"/>
+                    </m:layoutData>
+                </m:OverflowToolbarButton>
+                <m:ToolbarSeparator id="spacer2">
+                    <m:layoutData>
+                        <m:OverflowToolbarLayoutData id="toolbar5" group="2"/>
+                    </m:layoutData>
+                </m:ToolbarSeparator>
+                <m:OverflowToolbarButton id="icon3" icon="sap-icon://action-settings" type="Transparent" text="Settings"/>
+                <m:Button id="bellButton" icon="sap-icon://bell" type="Transparent" tooltip="Notification">
+                    <m:layoutData>
+                        <m:OverflowToolbarLayoutData id="toolbar6" priority="NeverOverflow"/>
+                    </m:layoutData>
+                </m:Button>
+                <tnt:ToolHeaderUtilitySeparator id="seperator"/>
+                <m:ToolbarSpacer id="spacer3" width="1rem"/>
+                <m:Avatar id="image1" src="avatar.png">
+                    <m:layoutData>
+                        <m:OverflowToolbarLayoutData id="toolbar" priority="NeverOverflow"/>
+                    </m:layoutData>
+                </m:Avatar>
+            </tnt:ToolHeader >
+        <m:content>
+      <m:Toolbar id="bar" class="sapUiTinyMargin">
+        <m:Title id="title" text="{i18n>Employee Details} (15)" class="bold-text"/>
+        <m:ToolbarSpacer id="searchDirect" />
+        <m:OverflowToolbar id="search">  
+          
+          <m:SearchField id="onSearch" width="16rem" class="SearchField" placeholder="Search here" search="onLiveChange"/>
+          <m:Button id="AddButton" icon="sap-icon://add" class="addButton" press="onAddEmployeePress"></m:Button>
+          <m:Button id="deleteButton" icon="sap-icon://delete" class="deleteButton" press="onDeleteItem"></m:Button>
+          <m:Button id="sortButton" icon="sap-icon://sort" class="deleteButton" press="onSort"></m:Button>
+        </m:OverflowToolbar>
+      </m:Toolbar>
+
+      <m:Table id="table" mode="SingleSelectLeft" items="{path:'/Employee'}" class="sapUiTinyMargin">
+        <m:columns>
+          <m:Column id="columnEmployeeID" class="employeeList">
+            <m:Text id="textEmployee" text="Employee"/>
+          </m:Column>
+          <m:Column id="jobCode" class="employeeList" hAlign="End">
+            <m:Text id="textID" text="Employee ID"/>
+          </m:Column> 
+        </m:columns>
+        <m:items>
+          <m:ColumnListItem id="item" type="Navigation" class="emp" press="onListItemPress">
+            <m:cells>
+              <m:ObjectIdentifier id="FullName" title="{firstName} {lastName}" text="Job Code {jobCode}"/>
+              <m:ObjectNumber id="ID" number="ID -" unit="{ID}"/>                           
+            </m:cells>
+          </m:ColumnListItem> 
+        </m:items>
+      </m:Table>
+    </m:content>
+    </m:ScrollContainer>
+
+    <m:Dialog id="addDialog" title="Add Employee" class="Dialog">
+        <m:Input id="firstNameInput" placeholder="First Name" class="sapUiTinyMargin" width="40%"/>
+        <m:Input id="lastNameInput"  placeholder="Last Name" class="sapUiTinyMargin" width="40%"/>
+        <m:Input id="JobCodeInput" placeholder="Job Code" class="sapUiTinyMargin" width="40%"/>
+        <m:Input id="IdInput"  placeholder="ID" class="sapUiTinyMargin" width="40%"/>
+      <m:VBox id="VBox">
+          <m:HBox id="Hbox">
+              <m:Button id="Add" text="Confirm" press="onAddEmployeeConfirm" class="sapUiTinyMargin"/>
+              <m:Button id="Cancel" text="Cancel" press="onAddEmployeeCancel" class="sapUiTinyMargin"/>
+          </m:HBox>
+      </m:VBox>
+    </m:Dialog>
+
+</mvc:View>
+
+
+
+<!-- items="{path:'/Employee',parameters : {expand : 'address'}}"> -->

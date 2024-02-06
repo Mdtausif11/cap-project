@@ -1,0 +1,28 @@
+<mvc:View
+    controllerName="com.training.employee.controller.Details"
+    xmlns="sap.m"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns:f="sap.ui.layout.form"
+    busyIndicatorDelay="0">
+
+    <Page id="employeePage" title="{= 'Employee Details of '+ '  ' + ${firstName} + ' ' + ${lastName} + ' ( ID - ' + ${ID}+ ' )' }" titleAlignment="Auto">
+        <VBox id="V1" class="sapUiSmallMargin">
+                <f:SimpleForm id="SimpleFormDisplay354"
+                editable="false"
+                layout="ResponsiveGridLayout"
+                adjustLabelSpan="false"
+                singleContainerFullSize="false" >
+            <f:content>
+                        <Label id="L1" text="Full Name" />
+                        <Text id="FullName" text=" {firstName}  {lastName} " />  
+                        <Label id="jobCode" text="Job-Code" />
+                        <Text  id="Code"    text="{jobCode}" />  
+                        <Label id="Department-ID" text="Department-ID"/> 
+                        <Text id="DepartmentID"  text="{department_ID}"/>       
+                        <Label id="Company-ID" text="Department-ID"/> 
+                        <Text id="CompanyID"  text="{company_ID}"/>       
+            </f:content>
+        </f:SimpleForm>
+        </VBox>
+    </Page>
+</mvc:View>	
